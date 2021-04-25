@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebProductList.Models.BriefProduct>
+
+@{
+    ViewData["Title"] = "Список продуктов";
+    Layout = "_Layout";
+}
+
+<h2>Список продуктов</h2>
+
+<form method="get">
+    <div>
+        <p>
+            <label>Название продукта: </label>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Минимальная цена: </label>
+            <input type="number" name="minprice" width="8" min="0" value="0" />
+            <label>Максимальная цена: </label>
+            <input type="number" name="maxprice" maxlength="8" min="0" />
+        </p>
+        <p>
+            <input type="submit" value="Найти" />
+        </p>
+    </div>
+</form>
+
+<div>
+    <p>
+        <a href="/ProductList/Create">Добавить продукт</a>
+    </p>
+</div>
+<hr />
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Название</th>
+        <th>Цена</th>
+    </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Price</td>
+        <td><a href="~/ProductList/Edit/@item.Id">Изменить</a>
+    </tr>
+    }
+</table>
+

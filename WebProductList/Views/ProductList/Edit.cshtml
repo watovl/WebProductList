@@ -1,0 +1,35 @@
+﻿@model WebProductList.Models.Product
+@{
+    ViewData["Title"] = "Изменение продукта";
+    Layout = "_Layout";
+}
+
+<h1>Изменение продукта</h1>
+
+<h4>Продукт</h4>
+<hr />
+<form method="post" action="/ProductList/Edit">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div>
+        <p>
+            <label>Новое название</label><br />
+            <input type="text" name="Name" required value="@Model.Name" /><br />
+        </p>
+        <p>
+            <label>Новое описание</label><br />
+            <input type="text" name="Description" required value="@Model.Description" /><br />
+        </p>
+        <p>
+            <label>Новая цена</label><br />
+            <input type="number" name="Price" required value="@Model.Price" /><br />
+        </p>
+        <p>
+            <input type="submit" value="Изменить" />
+        </p>
+    </div>
+</form>
+
+<div>
+    <a href="/ProductList/Index">Вернуться к списку</a>
+</div>
+

@@ -1,0 +1,24 @@
+﻿@model  WebProductList.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_Layout";
+}
+
+<h2>Вход на сайт</h2>
+
+<form method="post" action="/Account/Login">
+    <div>
+        <p>
+            <label>Введите логин</label><br />
+            <input type="text" name="Name" required /><br />
+        </p>
+        <p>
+            <label>Введите пароль</label><br />
+            <input type="Password" name="Password" required /><br />
+        </p>
+        <p>
+            <input type="submit" value="Войти" />
+        </p>
+    </div>
+</form>
